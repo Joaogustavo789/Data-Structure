@@ -23,8 +23,6 @@ def process(path_file, instance):
 
 
 def remove(instance):
-    # print(instance)
-
     if instance.__len__() == 0:
         sys.stdout.write("Não há elementos\n")
 
@@ -37,8 +35,6 @@ def remove(instance):
 
 
 def file_metadata(instance, position):
-    # print(position)
-
     try:
         file = instance.search(position)
 
