@@ -22,3 +22,6 @@ class Queue(AbstractQueue):
             raise IndexError("Índice Inválido ou Inexistente")
 
         return self.queue[index]
+
+    def showQueue(self):
+        return self.queue

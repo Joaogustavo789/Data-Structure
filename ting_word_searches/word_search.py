@@ -1,25 +1,27 @@
 def exists_word(word, instance):
-    print(instance)
+    # print(instance.showQueue())
 
-    for find_word in range(len(instance)):
-        if word not in instance.search(find_word).values():
-            return []
+    new_list = []
 
-    new_list = [
-        {
-            "palavra": word,
-            "arquivo": "statics/nome_pedro.txt",
-            "ocorrencias": [
-                {
-                    "linha": ""
-                },
+    for file in instance.showQueue():
+        ocorrencias = []
 
-                {
-                    "linha": ""
-                }
-            ]
-        }
-    ]
+        for index, line in enumerate(file["linhas_do_arquivo"]):
+            if word.lower() in line.lower():
+                ocorrencias.append(
+                    {
+                        "linha": index + 1
+                    },
+                )
+
+        if ocorrencias:
+            exist_word_list = {
+                "palavra": word,
+                "arquivo": file["nome_do_arquivo"],
+                "ocorrencias": ocorrencias
+            }
+
+            new_list.append(exist_word_list)
 
     return new_list
 
